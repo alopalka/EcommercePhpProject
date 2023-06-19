@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My E-commerce Store - Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Perspicacious Store | Cart</title>
     <link rel="stylesheet" href="resources/css/main_style.css">
 </head>
 <body>
 <header>
     <nav>
-        <div class="logo">My E-commerce Store</div>
+        <div class="logo">Perspicacious Store</div>
         <div class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count">3</span>
@@ -55,7 +58,8 @@
 </main>
 
 <footer>
-    <p>&copy; 2023 My E-commerce Store. All rights reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+    <p>&copy; 2023 Perspicacious Store. All rights reserved.</p>
 </footer>
 </body>
 </html>
+

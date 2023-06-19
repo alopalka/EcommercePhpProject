@@ -1,4 +1,3 @@
--- PRODUCT table
 CREATE TABLE products
 (
     id          INT AUTO_INCREMENT PRIMARY KEY,
@@ -37,3 +36,5 @@ VALUES ('Energy Blast', 'Provides sustained energy for improved performance', 27
 
 INSERT INTO products (name, description, price, image)
 VALUES ('Sleep Aid Restorer', 'Promotes deep, restful sleep and muscle recovery', 32.99, 'sleep_aid_restorer.jpg');
+
+

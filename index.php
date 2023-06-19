@@ -39,9 +39,10 @@ $conn->close();
 <header>
     <nav>
         <div class="logo">Perspicacious Store</div>
-        <div class="cart-icon">Cart</div>
+        <a href="cart.php" class="cart-icon">Cart</a>
     </nav>
 </header>
+
 
 <main>
     <?php foreach ($items as $item): ?>

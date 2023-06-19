@@ -38,10 +38,15 @@ $conn->close();
 <body>
 <header>
     <nav>
-        <div class="logo">Perspicacious Store</div>
+        <a href="index.php" class="logo">Perspicacious Store</a>
+        <div class="nav-buttons">
+            <a class="nav-button" href="login.php" class="nav-button">Login</a>
+            <a class="nav-button" href="register.php" class="nav-button">Register</a>
+        </div>
         <a href="cart.php" class="cart-icon">Cart</a>
     </nav>
 </header>
+
 
 
 <main>

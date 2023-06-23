@@ -102,7 +102,7 @@ function calculateTotalQuantity($items)
         </table>
 
         <div class="checkout-button">
-            <button>Checkout</button>
+            <a href="checkout.php"><button>Checkout</button></a>
         </div>
     <?php endif; ?>
 </main>

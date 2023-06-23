@@ -1,0 +1,91 @@
+/* checkout_style.css */
+
+/* Form styles */
+form {
+    min-width: 400px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #f0c040;
+    color: #232f3e;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #e0b030;
+}
+
+/* Order summary table styles */
+.order-details {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.order-details th,
+.order-details td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-details th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.order-details tfoot td {
+    font-weight: bold;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-flow: column;
+}
+
+main #checkout_name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+main #info {
+    margin-bottom: 20px;
+    font-size: 16px;
+}

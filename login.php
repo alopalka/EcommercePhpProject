@@ -1,6 +1,10 @@
 <?php
 require_once 'config.php';
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the form data
     $email = $_POST['email'];
@@ -20,25 +24,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Prepare and execute the SQL query
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = $conn->query($sql);
+    $conn->close();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
         // Verify the password
         if (password_verify($password, $row['password'])) {
-            echo "Login successful!";
+            // Start the session
+            session_start();
+
+            // Store user information in the session
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['email'] = $row['email'];
+
+            // Redirect to the main page
             header('Location: index.php');
             exit();
         } else {
             // Password is incorrect
-            echo "Incorrect password!";
+            $loginError = "Incorrect password!";
         }
     } else {
         // User with the provided email doesn't exist
-        echo "User not found!";
+        $loginError = "User not found!";
     }
-
-    $conn->close();
 }
 ?>
 
@@ -73,6 +83,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <button type="submit">Login</button>
         </form>
+
+        <?php if (isset($loginError)) : ?>
+            <p><?php echo $loginError; ?></p>
+        <?php endif; ?>
     </div>
 </main>
 

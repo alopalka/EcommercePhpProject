@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>My E-commerce Store - Orders</title>
-    <link rel="stylesheet" href="resources/css/main_style.css">
+    <link rel="stylesheet" href="../resources/css/main_style.css">
 </head>
 <body>
 <header>

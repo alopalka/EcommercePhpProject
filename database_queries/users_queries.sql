@@ -1,8 +1,9 @@
-CREATE TABLE users (
-                       id INT PRIMARY KEY AUTO_INCREMENT,
-                       username VARCHAR(50) NOT NULL,
-                       email VARCHAR(100) NOT NULL,
-                       password VARCHAR(255) NOT NULL
+CREATE TABLE users
+(
+    id       INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50)  NOT NULL,
+    email    VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL
 );
 
 INSERT INTO users (username, email, password)
@@ -18,5 +19,5 @@ INSERT INTO users (username, email, password)
 VALUES ('david_goggins', 'dont@knowme.son', 'pass1234');
 
 INSERT INTO users (username, email, password)
-VALUES ('alex_thompson', 'alex@example.com', 'test456');
+VALUES ('aaron_kitcher', 'destroy@drums.com', 'test456');
 

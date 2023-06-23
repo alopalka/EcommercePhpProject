@@ -17,10 +17,12 @@ INSERT INTO products (name, description, price, image)
 VALUES ('Fat Burn Extreme', 'Cutting-edge fat burner to support weight loss goals', 49.99, 'fatburn_extreme.jpg');
 
 INSERT INTO products (name, description, price, image)
-VALUES ('Muscle Maximizer', 'Advanced muscle-building supplement with essential nutrients', 44.99, 'muscle_maximizer.jpg');
+VALUES ('Muscle Maximizer', 'Advanced muscle-building supplement with essential nutrients', 44.99,
+        'muscle_maximizer.jpg');
 
 INSERT INTO products (name, description, price, image)
-VALUES ('Joint Support Plus', 'High-quality joint support formula for optimal joint health', 24.99, 'joint_support_plus.jpg');
+VALUES ('Joint Support Plus', 'High-quality joint support formula for optimal joint health', 24.99,
+        'joint_support_plus.jpg');
 
 INSERT INTO products (name, description, price, image)
 VALUES ('Brain Boost Elite', 'Enhances cognitive function and mental clarity', 39.99, 'brain_boost_elite.jpg');

@@ -1,53 +1,33 @@
 <?php
-require_once 'config.php';
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the form data
     $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    // Validate and sanitize the input data
+    $user_password = $_POST['password'];
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-    // Connect to the database
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    include "../includes/open_con.php";
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Prepare and execute the SQL query
     $sql = "SELECT * FROM users WHERE email = '$email'";
-    $result = $conn->query($sql);
-    $conn->close();
+    $userResult = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($userResult);
+    mysqli_close($conn);
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
+    $user_id_db = $row['id'];
+    $pass_db = $row['password'];
 
-        // Verify the password
-        if (password_verify($password, $row['password'])) {
-            // Start the session
-            session_start();
+    if ($user_password === $pass_db) {
+        session_start();
 
-            // Store user information in the session
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['email'] = $row['email'];
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['email'] = $row['email'];
 
-            // Redirect to the main page
-            header('Location: index.php');
-            exit();
-        } else {
-            // Password is incorrect
-            $loginError = "Incorrect password!";
-        }
+        header('Location: index.php');
+        exit();
     } else {
-        // User with the provided email doesn't exist
-        $loginError = "User not found!";
+        $loginError = 'Incorrect login or password';
     }
 }
 ?>
@@ -58,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="resources/css/main_style.css">
-    <link rel="stylesheet" href="resources/css/authorization.css">
+    <link rel="stylesheet" href="../resources/css/main_style.css">
+    <link rel="stylesheet" href="../resources/css/authorization.css">
     <title>Perspicacious Store | Login</title>
 </head>
 <body>
@@ -85,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
 
         <?php if (isset($loginError)) : ?>
-            <p><?php echo $loginError; ?></p>
+        <p><?php echo $loginError; ?></p>
         <?php endif; ?>
     </div>
 </main>

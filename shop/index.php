@@ -1,18 +1,13 @@
 <?php
-// Include the database configuration
-require_once 'config.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Create a connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include "../includes/open_con.php";
 
 // Retrieve items from the database
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
+mysqli_close($conn);
 
 // Store the retrieved items in an array
 $items = [];
@@ -21,9 +16,6 @@ if ($result->num_rows > 0) {
         $items[] = $row;
     }
 }
-
-// Close the connection
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +25,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Perspicacious Store | Main page</title>
-    <link rel="stylesheet" href="resources/css/main_style.css">
+    <link rel="stylesheet" href="../resources/css/main_style.css">
 </head>
 <body>
 <header>

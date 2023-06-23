@@ -8,3 +8,5 @@ CREATE TABLE cart
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (product_id) REFERENCES products (id)
 );
+
+-- we don't need this table due to fact that we save carts in the session
